@@ -10,12 +10,23 @@ group = "dev.msfjarvis.claw"
 
 version = "1.0"
 
+repositories {
+  maven {
+    url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+    content { includeGroup("org.pushing-pixels") }
+  }
+}
+
 kotlin {
   jvm { compilations.all { kotlinOptions.jvmTarget = "11" } }
   sourceSets {
     val jvmMain by getting {
       dependencies {
         implementation(projects.common)
+        implementation(libs.aurora.component)
+        implementation(libs.aurora.icon)
+        implementation(libs.aurora.skin)
+        implementation(libs.aurora.window)
         implementation(compose.desktop.currentOs)
       }
     }
