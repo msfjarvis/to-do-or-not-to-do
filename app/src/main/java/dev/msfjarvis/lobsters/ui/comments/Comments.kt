@@ -46,7 +46,6 @@ import dev.msfjarvis.lobsters.ui.posts.SubmitterName
 import dev.msfjarvis.lobsters.ui.posts.TagRow
 import dev.msfjarvis.lobsters.ui.urllauncher.LocalUrlLauncher
 import dev.msfjarvis.lobsters.util.IconResource
-import dev.msfjarvis.lobsters.util.toNormalizedHtml
 import dev.msfjarvis.lobsters.utils.Strings
 import dev.msfjarvis.lobsters.utils.get
 
@@ -186,7 +185,7 @@ private fun CommentsHeader(postDetails: LobstersPostDetails) {
 
     if (postDetails.description.isNotEmpty()) {
       Spacer(modifier = Modifier.height(16.dp))
-      Text(text = postDetails.description.toNormalizedHtml())
+      Text(text = getAnnotatedStringFromHtml(postDetails.description))
     } else {
       Spacer(modifier = Modifier.height(12.dp))
     }
